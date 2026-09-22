@@ -1,0 +1,16 @@
+Format references
+-----------------
+The installer contains an independently written parser/decompressor informed
+by public documentation and open-source implementations of CRI CPK, UTF and
+CRILAYLA formats, including:
+
+- cpktools by kamikat (MIT License)
+  https://github.com/kamikat/cpktools
+- CriPakTools by esperknight
+  https://github.com/esperknight/CriPakTools
+- Harmony-Tools wiki by redssu
+  https://github.com/redssu/Harmony-Tools/wiki/Danganronpa-V3%27s-file-types-and-structure
+
+No third-party executable, CpkMaker.dll, YACpkTool, or original game archive
+is included in this package.
+

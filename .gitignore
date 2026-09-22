@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+build/
+dist/
+pyinstaller_work/
+*.exe
+*.zip
+mod_data/
+.vs/
+bin/
+obj/
+
