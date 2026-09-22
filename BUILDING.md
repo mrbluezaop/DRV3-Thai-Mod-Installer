@@ -1,4 +1,4 @@
-# Build notes for v1.2.4
+# Build notes for the current Nexus upload
 
 ## Requirements
 
@@ -8,7 +8,6 @@
 - .NET Framework 4.x C# compiler (`csc.exe`)
 - The separately distributed `mod_data` directory containing the 56 translation
   files
-- The separately maintained GUI image resources listed below
 
 ## Backend
 
@@ -20,42 +19,36 @@ pyinstaller --clean --noconfirm DRV3ThaiBackend.spec
 
 The resulting backend is written to `dist/DRV3ThaiBackend.exe`.
 
-The release configuration uses PyInstaller one-file mode, a windowed backend,
-UPX when available, and an administrator manifest. The translation payload is
-embedded in the executable.
+The release configuration uses PyInstaller one-file console mode and embeds the
+translation payload. The console subsystem is retained for deterministic output,
+but the elevated GUI launches it with `CreateNoWindow=true` and captures progress
+through redirected standard output and error.
+
+The public specification omits the release icon because the artwork is not part
+of this source repository. This changes only the executable resource section;
+the installer logic and embedded translation payload are unchanged.
 
 ## GUI
 
-The GUI requires these image resources in `source/`:
-
-```text
-app.ico
-logo.png
-translator.png
-monokuma.png
-monokuma_question.png
-monokuma_warning.png
-monokuma_info.png
-monokuma_error.png
-```
+The GUI uses standard Windows Forms controls. It does not require or embed image
+resources, call `user32.dll` directly, use custom window drawing, or contain
+network/download code. Its manifest requests administrator privileges at startup
+so the backend can be launched without another shell or visible console window.
 
 Build from a Developer Command Prompt for .NET Framework:
 
 ```text
-csc /target:winexe /optimize+ ^
+csc /nologo /target:winexe /optimize+ /platform:anycpu ^
   /out:"Danganronpa V3 Thai Mod Installer.exe" ^
   /win32manifest:source\app.manifest ^
-  /win32icon:source\app.ico ^
-  /resource:source\app.ico,app.ico ^
-  /resource:source\logo.png,logo.png ^
-  /resource:source\translator.png,translator.png ^
-  /resource:source\monokuma.png,monokuma.png ^
-  /resource:source\monokuma_question.png,monokuma_question.png ^
-  /resource:source\monokuma_warning.png,monokuma_warning.png ^
-  /resource:source\monokuma_info.png,monokuma_info.png ^
-  /resource:source\monokuma_error.png,monokuma_error.png ^
   /reference:System.dll,System.Drawing.dll,System.Windows.Forms.dll ^
   source\Drv3ThaiGui.cs
+```
+
+The uploaded GUI was compiled with the .NET Framework 4.x compiler at:
+
+```text
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe
 ```
 
 ## Tests and read-only verification
@@ -72,4 +65,11 @@ without changing the game installation:
 ```text
 dist\DRV3ThaiBackend.exe --verify-payload --no-pause
 ```
+
+Expected SHA-256 values for the reviewed upload are recorded in
+`SHA256SUMS.txt`.
+
+The legacy .NET Framework compiler writes build-specific metadata, so a clean
+rebuild from the reviewed source can be functionally identical without being
+byte-for-byte identical to the uploaded GUI hash.
 

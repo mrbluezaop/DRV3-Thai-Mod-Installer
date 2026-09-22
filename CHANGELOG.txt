@@ -1,6 +1,15 @@
 Danganronpa V3 Thai Mod — ประวัติเวอร์ชัน (สำหรับผู้พัฒนา ไม่ต้องแจก)
 ============================================================
 
+รุ่นที่อัปโหลด Nexus วันที่ 23 กันยายน 2026
+-------------------------------------------
+- เปลี่ยน GUI เป็น Windows Forms controls มาตรฐาน
+- ยกเลิก borderless window, custom drawing, animation, embedded artwork และ dialog ที่วาดเอง
+- ตัดการเรียก user32.dll โดยตรงออกทั้งหมด
+- GUI ขอ Administrator ตอนเริ่มและเปิด backend แบบไม่มีหน้าต่าง console
+- backend และ payload 56 ไฟล์เหมือน v1.2.4 ทุกประการ
+- ZIP SHA-256: F8441A03FC317795D3213565F66281EF7D24977D3BF220854043FCAFE2E3A467
+
 สิ่งที่แก้ใน v1.2.4
 -------------------
 - เพิ่มคำแปล flash/event/EV_229_song_US.spc
