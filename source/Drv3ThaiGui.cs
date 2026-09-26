@@ -10,8 +10,8 @@ using System.Windows.Forms;
 [assembly: System.Reflection.AssemblyTitle("Danganronpa V3 Thai Mod Installer")]
 [assembly: System.Reflection.AssemblyDescription("Standard WinForms installer for the Danganronpa V3 Thai translation mod")]
 [assembly: System.Reflection.AssemblyProduct("Danganronpa V3 Thai Mod Installer")]
-[assembly: System.Reflection.AssemblyVersion("1.2.6.0")]
-[assembly: System.Reflection.AssemblyFileVersion("1.2.6.0")]
+[assembly: System.Reflection.AssemblyVersion("2.0.0.0")]
+[assembly: System.Reflection.AssemblyFileVersion("2.0.0.0")]
 
 namespace Drv3ThaiModStandard
 {
