@@ -3,6 +3,8 @@
 Source-code archive for the current Nexus Mods upload of the fan-made Thai
 translation installer for **Danganronpa V3: Killing Harmony**.
 
+The current reviewed source corresponds to release **2.0.0**.
+
 This repository is published for transparency and security review. It contains
 the installer source code, tests, manifests, build notes, and hashes of the
 executables uploaded to Nexus Mods.
@@ -47,19 +49,20 @@ its own.
 ## Current Nexus upload hashes
 
 ```text
-F8441A03FC317795D3213565F66281EF7D24977D3BF220854043FCAFE2E3A467  Danganronpa_V3_Thai_Mod_Installer.zip
-8CD2B56536C5A3AAF1337A107698B70A9AC7AEDA3F825E6E174330D0DAB0AE95  Danganronpa V3 Thai Mod Installer.exe
-F36740895A84CD9EBBA31CAF1D112298C4DEDC299877D93C26870D69B31F43FD  bin/DRV3ThaiBackend.exe
+D4FECC0C2C672953E1FE285F3EBB27158ABA4686C99331E19401CA13775B9FA4  Danganronpa_V3_Thai_Mod_Installer_v2.0.0.zip
+C3F1EFFCD1B1BC2BBBB4C369432BA919D63BD741930C0C4FB04DF2C126E083F7  Danganronpa V3 Thai Mod Installer.exe
+47F2EE7875C03652C7B5F36E9C460162F3D34AA53087B2E92CBB08A0DB406EFA  bin/DRV3ThaiBackend.exe
 ```
 
 VirusTotal report for the quarantined ZIP:
 
-https://www.virustotal.com/gui/file/f8441a03fc317795d3213565f66281ef7d24977d3bf220854043fcafe2e3a467
+https://www.virustotal.com/gui/file/d4fecc0c2c672953e1fe285f3ebb27158aba4686c99331e19401ca13775b9fa4
 
-The backend is unchanged from the earlier release and remains a PyInstaller
-one-file executable. Some scanners classify PyInstaller bootloaders using
-generic or machine-learning labels. The complete backend source and its payload
-hash table are included here for manual review.
+The backend remains a PyInstaller one-file executable. Release 2.0.0 updates 20
+of the 56 translation payload files and the corresponding hard-coded SHA-256
+table; its installer behavior is unchanged. Some scanners classify PyInstaller
+bootloaders using generic or machine-learning labels. The complete backend
+source and its payload hash table are included here for manual review.
 
 ## License
 
